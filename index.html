@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#070b16">
+  <meta name="description" content="ToxiSense AI is an educational cyberbullying and harmful-language detection demo.">
+  <title>ToxiSense AI | Cyber Safety Intelligence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<header class="topbar">
+  <a class="brand" href="#home"><span class="brand-mark">TS</span><span>TOXISENSE<span class="brand-ai">.AI</span><small>CYBER SAFETY INTELLIGENCE</small></span></a>
+  <nav><a href="#analyzer">AI Scanner</a><a href="#safety">Safety Center</a><a href="#about">About</a></nav>
+  <span class="status-pill"><i></i> SYSTEM ONLINE</span>
+</header>
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="eyebrow-line"></span> DIGITAL WELLBEING • NLP • MACHINE LEARNING</div>
+      <h1>Make the internet<br><span class="gradient-text">a safer space.</span></h1>
+      <p class="hero-lead">AI-assisted signals for harmful language, cyberbullying and possible threats — built to encourage awareness, not judgement.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#analyzer">Launch AI scanner <b>↗</b></a><a class="text-link" href="#safety">Explore safety guide <span>→</span></a></div>
+      <div class="hero-note"><span class="pulse-dot"></span> EDUCATIONAL DEMO <span class="separator">/</span> NO LOGIN <span class="separator">/</span> NO MESSAGE STORAGE</div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+      <div class="core"><div class="core-inner"><span class="shield">⬡</span><b>AI</b><small>GUARDIAN</small></div></div>
+      <div class="float-tag tag-one"><span class="tag-icon">⌁</span><span>TEXT ANALYSIS<small>NLP ENGINE</small></span><i class="tag-live"></i></div>
+      <div class="float-tag tag-two"><span class="tag-icon">◈</span><span>THREAT SIGNALS<small>SAFETY CHECK</small></span></div>
+      <div class="visual-caption">SCAN • DETECT • SUPPORT</div>
+    </div>
+  </section>
+
+  <section class="stats-grid" aria-label="Model information">
+    <article class="stat-card"><span class="stat-icon">◉</span><div><small>MODEL TYPE</small><strong>TF-IDF + ML</strong><em>Logistic Regression</em></div></article>
+    <article class="stat-card"><span class="stat-icon">⌗</span><div><small>TRAINING SAMPLES</small><strong>47,692</strong><em>English social posts</em></div></article>
+    <article class="stat-card"><span class="stat-icon">◎</span><div><small>TEST ACCURACY</small><strong>81.11%</strong><em>Held-out dataset result</em></div></article>
+    <article class="stat-card"><span class="stat-icon">◌</span><div><small>PRIVACY MODE</small><strong>NO STORAGE</strong><em>Text not saved by app</em></div></article>
+  </section>
+
+  <section class="scanner-section" id="analyzer">
+    <div class="section-heading"><div><div class="eyebrow">01 / INTELLIGENCE SCANNER</div><h2>Analyse a message<span class="accent">.</span></h2><p>Try a sample or enter a short, non-private example message.</p></div><div class="engine-chip"><span></span> ML ENGINE READY</div></div>
+    <div class="scanner-layout">
+      <div class="scanner-panel glass-panel">
+        <div class="panel-top"><div><span class="mini-label">INPUT TERMINAL</span><h3>Text analysis</h3></div><span class="lock-label">⌑ PRIVATE BY DESIGN</span></div>
+        <label for="message">MESSAGE CONTENT</label>
+        <textarea id="message" maxlength="1000" placeholder="Type a sample message here...&#10;&#10;Tip: Never paste private chats, names, phone numbers or personal details."></textarea>
+        <div class="input-meta"><span id="count">0 / 1000</span><span>TEXT ONLY • MAX 1000 CHARACTERS</span></div>
+        <div class="sample-row"><span>QUICK TESTS</span><button class="sample-btn" data-sample="You are kind and helpful. Thank you for supporting me.">Safe example</button><button class="sample-btn" data-sample="You are worthless. Nobody likes you. Stop talking.">Harassment example</button><button class="sample-btn" data-sample="I know where you live. You will not be safe.">Threat example</button></div>
+        <button id="analyze" class="btn btn-primary analyze-btn"><span>Run AI analysis</span><b>⟶</b></button>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+      <div class="result-panel glass-panel" id="result-panel">
+        <div class="panel-top"><div><span class="mini-label">OUTPUT TERMINAL</span><h3>Analysis report</h3></div><span class="report-id">TS / REPORT</span></div>
+        <div id="empty-state" class="empty-state"><div class="radar"><span></span><i></i></div><strong>Awaiting input</strong><p>Your analysis report will appear here after scanning a message.</p><small>NO MESSAGE IS STORED</small></div>
+        <div id="result" class="result hidden" aria-live="polite">
+          <div class="result-banner"><span id="result-icon">◈</span><div><small>MODEL ASSESSMENT</small><strong id="result-title"></strong></div><span id="risk-badge" class="risk-badge">LOW</span></div>
+          <div class="confidence-wrap"><div class="confidence-head"><span>MODEL CONFIDENCE</span><strong id="confidence">—</strong></div><div class="meter"><span id="confidence-bar"></span></div><small>Confidence is not a guarantee of correctness.</small></div>
+          <div class="signal-block"><small>DETECTED SIGNALS</small><ul id="signals"><li>No extra phrase signal detected.</li></ul></div>
+          <div class="risk-block"><small id="risk-title">SAFETY GUIDANCE</small><ul id="risk-steps"></ul></div>
+          <p id="result-note" class="result-note"></p>
+        </div>
+      </div>
+    </div>
+    <p class="model-caveat"><b>Model limitation:</b> The ML classifier was trained on English-language social-media data. It may misread Hindi/Hinglish, slang, sarcasm, reclaimed words and context. Threat phrase checks cover only a small set of patterns; absence of a flag does not mean a message is safe.</p>
+  </section>
+
+  <section class="safety-section" id="safety">
+    <div class="section-heading"><div><div class="eyebrow">02 / PERSONAL SAFETY CENTER</div><h2>If a threat feels serious<span class="accent">.</span></h2><p>AI cannot protect you by itself. Reach a trusted person and use real-world support.</p></div><span class="safety-icon">✳</span></div>
+    <div class="safety-grid">
+      <article class="safety-card urgent"><div class="card-number">01</div><div class="card-symbol">⌁</div><h3>Immediate danger?</h3><p>Move to a safe place with trusted people. Do not meet or confront the person. Call emergency services.</p><a class="helpline-call" href="tel:112"><span>INDIA EMERGENCY</span><strong>112 <b>↗</b></strong></a></article>
+      <article class="safety-card"><div class="card-number">02</div><div class="card-symbol">♧</div><h3>Tell a trusted adult</h3><p>Tell a parent, guardian, teacher or another adult you trust. Children in distress can contact Child Helpline.</p><a class="helpline-call" href="tel:1098"><span>CHILD HELPLINE</span><strong>1098 <b>↗</b></strong></a></article>
+      <article class="safety-card"><div class="card-number">03</div><div class="card-symbol">▣</div><h3>Keep evidence safe</h3><p>Keep screenshots, profile links, usernames and dates. Do not edit or forward harmful content unnecessarily.</p><a class="helpline-call" href="https://cybercrime.gov.in/" target="_blank" rel="noopener"><span>OFFICIAL REPORTING PORTAL</span><strong>cybercrime.gov.in <b>↗</b></strong></a></article>
+    </div>
+    <div class="safety-strip"><span class="strip-icon">ⓘ</span><p><b>Remember:</b> Don't retaliate, don't share your live location or private details, and don't handle a serious threat alone. The 1930 cyber helpline is primarily for financial cyber fraud — use the official portal for other cybercrime reporting.</p></div>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="about-copy"><div class="eyebrow">03 / ABOUT THE PROJECT</div><h2>Technology with<br><span class="gradient-text">a human purpose.</span></h2><p>ToxiSense AI is a school-level educational prototype that combines a machine-learning text classifier with a small phrase-based safety check. It is designed to encourage digital awareness and supportive action.</p></div>
+    <div class="about-points"><div><span>01</span><p><b>Machine learning</b><small>TF-IDF text features + Logistic Regression.</small></p></div><div><span>02</span><p><b>Safety signals</b><small>Limited phrase checks highlight possible threat or harassment language.</small></p></div><div><span>03</span><p><b>Human-first support</b><small>Guidance and official help contacts — never automatic punishment.</small></p></div></div>
+  </section>
+</main>
+<footer><div class="footer-brand"><span class="brand-mark">TS</span><span>TOXISENSE<span class="brand-ai">.AI</span></span></div><p>Educational prototype • Use responsibly • No automated decisions</p><div class="credit">DEVELOPED BY <b>SHREYA AGARWAL</b></div><small class="footer-small">Helpline information: Government of India sources. If a number is unavailable, contact local emergency services.</small></footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
