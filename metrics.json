@@ -1,0 +1,7 @@
+{
+  "test_rows": 9539,
+  "accuracy": 0.8111,
+  "precision": 0.9669,
+  "recall": 0.8008,
+  "f1": 0.876
+}

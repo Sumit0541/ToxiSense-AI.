@@ -1,0 +1,14 @@
+{
+  "project": "ToxiSense AI",
+  "developer_credit": "Developed by Shreya Agarwal",
+  "model_type": "TF-IDF + Logistic Regression",
+  "model_classes": [
+    "likely_safe",
+    "potentially_harmful"
+  ],
+  "training_language": "English",
+  "training_rows": 47692,
+  "stores_submitted_text": false,
+  "threat_phrase_checks": "limited rule-based phrase patterns; not comprehensive",
+  "disclaimer": "Educational prototype only; human review and real-world support are essential."
+}
